@@ -5,12 +5,13 @@ namespace CSharpActivities;
 
 public class Activities
 {
-    [Activity]
-    public string Greet(Person person)
-    {
-        var fullName = $"{person.Title} {person.FirstName} {person.LastName}".Trim();
-        return $"Hello from .NET, {fullName}!";
-    }
+        [Activity(name: "greet_cs")] // the temporal activity name differs from this method's name
+        public string Greet(Person person)
+        {
+            var fullName = $"{person.Title} {person.FirstName} {person.LastName}".Trim();
+            Console.WriteLine($"[C#] Greet called with: {fullName}");
+            return $"Hello from C#, {fullName}!";
+        }
 }
 
 public class Person

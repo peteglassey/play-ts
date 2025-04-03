@@ -1,6 +1,6 @@
 import { Connection, Client } from '@temporalio/client';
 import { v4 as uuid } from 'uuid';
-import { polyglotGreetingWorkflow } from './workflows/workflow';
+import { polyglotGreeting } from './workflows/workflow';
 import { Person } from './person';
 
 const person: Person = {
@@ -13,7 +13,7 @@ async function run() {
   const connection = await Connection.connect();
   const client = new Client({ connection });
 
-  const handle = await client.workflow.start(polyglotGreetingWorkflow, {
+  const handle = await client.workflow.start(polyglotGreeting, {
     args: [person],
     taskQueue: 'typescript-queue',
     workflowId: 'polyglot-' + uuid(),

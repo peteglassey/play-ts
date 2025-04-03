@@ -15,7 +15,7 @@ const { greet_ts } = proxyActivities<{
     startToCloseTimeout: '10 seconds',
   });
 
-export async function polyglotGreetingWorkflow(person: Person): Promise<string> {
+export async function polyglotGreeting(person: Person): Promise<string> {
 
     // Run the Typescript greet() activity
     const tsResult = await greet_ts(person);
